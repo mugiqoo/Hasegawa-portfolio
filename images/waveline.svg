@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366.31 132.05">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 0 59.99 59.99;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #565656;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="image">
+    <g>
+      <line class="cls-1" x1="1366.19" y1=".48" x2="1027.9" y2="86.58"/>
+      <path class="cls-2" d="m.19,131.59C166.1,64.24,298.13,55.99,387.27,60.57c109.95,5.65,162.41,31.23,293.06,43.01,147.68,13.31,269.31-2.36,347.07-17"/>
+    </g>
+  </g>
+</svg>
