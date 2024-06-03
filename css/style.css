@@ -39,7 +39,7 @@ body{background-color: #FAF6EF;}
 img{max-width: 100%;}
 
 /* ロード画面 */
-/* #loading {  */
+#loading {  
     width: 100vw;
     height: 100vh;
     transition: all 1s;
@@ -258,7 +258,7 @@ animation: scroll 3s cubic-bezier(1, 0, 0, 1) infinite;
     stroke: #80807f;
     stroke-width: 1;
     fill: none;
-    stroke-miterlimit: 0
+    stroke-miterlimit: 0;
 }
 
 .section__line path {
