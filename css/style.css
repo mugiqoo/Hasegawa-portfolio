@@ -610,7 +610,7 @@ p.works-title{
 
 .modal-wrapper {
     position: fixed;
-    z-index: 2;
+    z-index: 8888;
     top: 0;
     right: 0;
     bottom: auto;
