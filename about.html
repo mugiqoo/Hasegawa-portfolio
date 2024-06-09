@@ -14,16 +14,16 @@
     <div class="hamburger" ><span></span></div>
     <nav class="global-nav">
         <ul>
-            <li><a href="#ABOUT">わたしについて</a></li>
-            <li><a href="#WORKS">つくったもの</a></li>
-            <li><a href="#CONTACT">お問い合わせ</a></li>
+            <li><a href="index.html#ABOUT">わたしについて</a></li>
+            <li><a href="index.html#WORKS">つくったもの</a></li>
+            <li><a href="index.html#CONTACT">お問い合わせ</a></li>
         </ul>
     </nav>  
     
     <div class="name-scroll">
         <img class="name-scroll-img" src="images/name_scroll.svg" alt="hasegawashigemi">
         <img class="profile-img" src="images/profile.jpg" alt="プロフィール写真">
-        <p class="about-profile">Profile</p>      
+        <h1 class="about-profile">Profile</h1>      
     </div>
 
 
@@ -129,59 +129,35 @@
         <div class="footerwrap"> 
             <small>&copy; 2024 Shigemi Hasegawa</small>  
         </div>   
-    </footer> 
-
- <!--ハンバーガーメニュー-->
-   <script>
-    $(function () {
-       $('.hamburger').on('click',function () {
-           $(".hamburger").toggleClass("open");
-           $("body").toggleClass("noscroll");
-           $('.hamburger, .global-nav').toggleClass('active');
-       });
-    });   
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
+    </footer>
 
    <script>
-     const triggerSection = document.querySelector(".js-scroll-trigger");
-     const listWrapperEl = document.querySelector('.biography-container');
-     const listEl = document.querySelector('.biography-list');
+      //ハンバーガーメニュー//
+      $(function () {
+         $('.hamburger,.global-nav li').on('click',function () {
+             $(".hamburger").toggleClass("open");
+             $("body").toggleClass("noscroll");
+             $('.hamburger, .global-nav').toggleClass('active');
+          });
+       });   
 
-     gsap.to(listEl, {
-     x: () => -(listEl.clientWidth - listWrapperEl.clientWidth),
-     ease: 'none',
-
-     scrollTrigger: {
-      trigger: triggerSection,
-      start: 'top top', 
-      end: () => `+=${listEl.clientWidth - listWrapperEl.clientWidth}`,
-      scrub: true,
-      pin: true,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-     },
-    });
-    </script>
-    
-
-    
-    
-
-    
-
-      
-    
+      // /横スクロール/ // 
+      const triggerSection = document.querySelector(".js-scroll-trigger");
+      const listWrapperEl = document.querySelector('.biography-container');
+      const listEl = document.querySelector('.biography-list');
+      gsap.to(listEl, {
+         x: () => -(listEl.clientWidth - listWrapperEl.clientWidth),
+         ease: 'none',
+         scrollTrigger: {
+             trigger: triggerSection,
+             start: 'top top', 
+             end: () => `+=${listEl.clientWidth - listWrapperEl.clientWidth}`,
+             scrub: true,
+             pin: true,
+             anticipatePin: 1,
+             invalidateOnRefresh: true,
+            },
+        });
+   </script> 
 </body>
 </html>

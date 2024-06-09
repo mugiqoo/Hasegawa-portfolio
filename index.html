@@ -12,7 +12,7 @@
 
 <body>    
     <!-- ロード画面 -->
-    <div id="loading">
+    <div class="loading">
         <div class="spinner"></div>
     </div>
 
@@ -32,7 +32,7 @@
         <div class="header-img">
             <img class="header-door" src="images/header-door.png" alt="とびら">
             <img class="header-title" src="images/header-title.png" alt="welcome">
-            <p class="header-name">SHIGEMI HASEGAWA</p>
+            <h1 class="header-name">SHIGEMI HASEGAWA</h1>
         </div>
         </div>
     </header>
@@ -44,7 +44,7 @@
 
     <!-- コンセプト -->
     <section class="concept">
-        お客様自身も気づいていない頭の中のイメージを<br>掘り起こし言語化し整理していく<br>感情を動かし記憶に残るデザイン
+        <p>お客様自身も気づいていない頭の中のイメージを<br>掘り起こし言語化し整理していく<br>感情を動かし記憶に残るデザイン</p>
     </section>
 
     <!-- 波線 -->
@@ -61,8 +61,7 @@
         <div class="about-inner">
             <img class="about-img" src="images/watashi.jpg" alt="作業写真">
             <p>はじめまして。長谷川 茂実と申します。
-              1992年、神奈川県横浜市生まれ。犬より猫派、海より山派、季節は春が好きです。趣味はワインとアニメで、好きなものはト
-              コトン突き詰めたいオタク気質。WEBデザイナーの経験は浅いですが、丁寧な対応でお客様に寄り添います。
+              1992年、神奈川県横浜市生まれ。犬より猫派、海より山派、季節は春が好きです。趣味はワインとアニメで、好きなものはトコトン突き詰めたいオタク気質。WEBデザイナーの経験は浅いですが、丁寧な対応でお客様に寄り添います。
             </p>
           
             <div class="about-button">
@@ -249,7 +248,7 @@
 
     <!-- お問い合わせ -->
     <section class="contact" id="CONTACT">
-        <h2 class="contact-title">お問い合わせ</h2>
+        <h2>お問い合わせ</h2>
         <div class="contact-wrap">
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSejCDSWQQ4lbtgN9bqlk9m_7tFemRQD-wP6F3yRrQPd0ZGhfA/formResponse" 
          method="post"  target="hidden_iframe"  onsubmit="submitted=true;">
@@ -259,12 +258,12 @@
         </div>
 
         <div>
-            <p><label for="name">フリガナ</label></p>
+            <p><label for="furigana">フリガナ</label></p>
             <input type="text" name="entry.1470708895" id="furigana">
         </div>
 
         <div>
-            <p><label for="address">メールアドレス</label></p>
+            <p><label for="mail">メールアドレス</label></p>
             <input type="email" name="entry.89101014"  id="mail">
         </div>
         
@@ -296,55 +295,76 @@
         </div>   
     </footer> 
 
-    <!-- ロード画面 -->
     <script>
+       //ロード画面// 
        setTimeout(function(){
-       const load = document.getElementById('loading');
-        load.classList.add('loaded');
-     }, 3000);
-    </script>
+         const load = document.getElementById('.loading');
+         load.classList.add('loaded');
+       }, 3000);
 
-    <!-- モーダルウィンドウ-->
-    <script>
+
+
+       $(function () {
+       var webStorage = function () {
+       if (sessionStorage.getItem('access')) {
+      /*
+        2回目以降アクセス時の処理
+      */
+      $(".loading").addClass('is-active');
+      } else {
+      /*
+        初回アクセス時の処理
+      */
+      sessionStorage.setItem('access', 'true'); // sessionStorageにデータを保存
+      $("spinner").addClass('is-active'); // loadingアニメーションを表示
+      setTimeout(function () {
+        // ローディングを数秒後に非表示にする
+        $(".loading").addClass('is-active');
+        $(".spinner").removeClass('is-active');
+      }, 3000); // ローディングを表示する時間
+      }
+      }
+      webStorage();
+      });
+    
+
+
+
+
+
+       //モーダルウィンドウ//   
         $('.jsc-modal-trigger1,.modal-btn1').click(function () {
             $('.jsc-layer').fadeToggle();
             $('.jsc-modal-target1').fadeToggle();
             $('body').toggleClass('stop');
         });
-
         $('.jsc-modal-trigger2,.modal-btn2').click(function () {
             $('.jsc-layer').fadeToggle();
             $('.jsc-modal-target2').fadeToggle();
             $('body').toggleClass('stop');
         });
-
         $('.jsc-modal-trigger3,.modal-btn3').click(function () {
             $('.jsc-layer').fadeToggle();
             $('.jsc-modal-target3').fadeToggle();
             $('body').toggleClass('stop');
         });
-
         $('.jsc-modal-trigger4,.modal-btn4').click(function () {
             $('.jsc-layer').fadeToggle();
             $('.jsc-modal-target4').fadeToggle();
             $('body').toggleClass('stop');
         });
-
         $('.jsc-modal-trigger5,.modal-btn5').click(function () {
             $('.jsc-layer').fadeToggle();
             $('.jsc-modal-target5').fadeToggle();
             $('body').toggleClass('stop');
         });
-
         $('.jsc-modal-trigger6,.modal-btn6').click(function () {
             $('.jsc-layer').fadeToggle();
             $('.jsc-modal-target6').fadeToggle();
             $('body').toggleClass('stop');
         });
-    </script>
 
-    <!-- ヘッダー名前アニメーションいらない？-->
-    <script>
+        //ヘッダー名前アニメーションいらない？//
         function BlurTextAnimeControl() {
         $('.header-name').each(function(){ 
             var elemPos = $(this).offset().top-50;
@@ -360,37 +380,29 @@
        $(window).on('load', function () {
           BlurTextAnimeControl();
        });
-    </script>  
 
+       //波線アニメーション//
+       const svgEls = document.querySelectorAll(".svg__path");
+       const tl = gsap.timeline();
+       tl.to(".svg__path", {
+         strokeDasharray : 3e3,
+         strokeDashoffset: -2e3,
+         scrollTrigger: {
+             trigger:".container" ,
+             start: "top bottom",
+             end: "bottom 10%",
+             scrub: .5
+            } 
+       });  
 
-  <!--波線アニメーション-->
- <script>
-      const svgEls = document.querySelectorAll(".svg__path");
-     // アニメーション
-     const tl = gsap.timeline();
-
-     tl.to(".svg__path", {
-     strokeDasharray : 3e3,
-     strokeDashoffset: -2e3,
-     scrollTrigger: {
-        trigger:".container" ,
-        start: "top bottom",
-        end: "bottom 10%",
-        scrub: .5
-      } 
-     });  
-   </script>
-
-  <!--ハンバーガーメニュー-->
-   <script>
-    $(function () {
-       $('.hamburger').on('click',function () {
-           $(".hamburger").toggleClass("open");
-           $("body").toggleClass("noscroll");
-           $('.hamburger, .global-nav').toggleClass('active');
-       });
-    });   
-    </script>
-    
+       //ハンバーガーメニュー//
+       $(function () {
+          $('.hamburger,.global-nav li').on('click',function () {
+             $(".hamburger").toggleClass("open");
+             $("body").toggleClass("noscroll");
+             $('.hamburger, .global-nav').toggleClass('active');
+          });
+       });   
+    </script>    
 </body>
 </html>

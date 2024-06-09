@@ -25,7 +25,10 @@ dd {
         "ＭＳ 明朝", serif;
     font-feature-settings: "palt";
 }
-
+::before, ::after {
+    box-sizing: inherit;
+    vertical-align: inherit;
+}
 a {
     /*下線を消す*/
     text-decoration: none;
@@ -39,7 +42,7 @@ body{background-color: #FAF6EF;}
 img{max-width: 100%;}
 
 /* ロード画面 */
-#loading {  
+.loading {  
     width: 100vw;
     height: 100vh;
     transition: all 1s;
@@ -52,6 +55,11 @@ img{max-width: 100%;}
     left: 0;
     z-index: 9999;
 }
+
+.loading.is-active {
+    opacity: 0;
+    visibility: hidden;
+  }
      
 .spinner {
     width: 200px;
@@ -60,6 +68,10 @@ img{max-width: 100%;}
     border-radius: 100%;
     animation: sk-scaleout 1.8s infinite ease-in-out;
 }
+.spinner.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
 
 /* ローディングアニメーション */
 @keyframes sk-scaleout {
@@ -232,7 +244,7 @@ animation: scroll 3s cubic-bezier(1, 0, 0, 1) infinite;
 }
 
 /* コンセプト */
-.concept{
+.concept p{
     font-size:36px;
     font-weight: normal;
     line-height: 3;
@@ -270,11 +282,23 @@ animation: scroll 3s cubic-bezier(1, 0, 0, 1) infinite;
 }
 
 /* わたしについて */
+.about{
+    margin-top: 245px;
+}
+
+h2{
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: 0.2em;
+    margin-bottom: 95px;
+    text-align: center;
+}
 
 .about h2{
-    margin-left: 130px;
     text-align: left;
+    margin-left: 130px;
 }
+
 .about-img{
     z-index: 10;
     width: 50%;
@@ -392,15 +416,9 @@ animation: scroll 3s cubic-bezier(1, 0, 0, 1) infinite;
 }
 
 /* つくったもの */
-h2{
-    font-size: 36px;
-    font-weight: normal;
-    letter-spacing: 0.2em;
-    text-align: center;
+.works{
     margin-top: 245px;
-    margin-bottom: 95px;
 }
-
 .box{
     display: flex;
     justify-content: space-between;
@@ -709,14 +727,11 @@ img.mainichi_pc{
 }
 
 /* お問い合わせ */
-.contact-title{
-    font-size: 36px;
-    letter-spacing: 0.2em;
-    font-weight: normal;
+
+.contact{
+    text-align: center;
     margin-top: 245px;
-    margin-bottom: 91px;
 }
-.contact{text-align: center;}
 
 .contact-wrap{
     width: 700px;
@@ -860,13 +875,12 @@ img.mainichi_pc{
 
 
 /* 3つの強み */
-.about-h2{
+.strenth{
+    margin-top: 146px;
+}
+
+.about-h2{    
     text-align: left;
-    font-size: 36px;
-    letter-spacing: 0.2em;
-    font-weight: normal;
-    padding-top: 146px;
-    margin-top:0px ;
 }
 .strenth-inner{
     margin-inline: auto;
@@ -919,7 +933,11 @@ img.mainichi_pc{
 
 /* いままでのあゆみ */
 .biography {
+    position: relative;
+    padding-top: 100px;
+    min-height: 100dvh;
     min-height: 100vh;
+    height: 100vh;
     background-color: #E0ECE4 ;
     color:#565656;
 }  
@@ -955,14 +973,14 @@ img.mainichi_pc{
     position: relative;
     width: 16px;
     height: 16px;
-    margin-bottom: 122px;
+    margin-bottom: 64px;
     background-color: #565656;
     border-radius: 50%;
 }
   
 .biography-date {
     display: inline-block;
-    margin-bottom: 89px;
+    margin-bottom: 64px;
     font-size:20px ;
     letter-spacing: 0.05em;
     font-weight: lighter;
@@ -997,6 +1015,10 @@ img.mainichi_pc{
 }
 
 /* これから */
+.feature{
+    margin-top: 146px;
+}
+
 .feature-description{
     width:758px ;
     font-size: 16px;
@@ -1010,17 +1032,6 @@ img.mainichi_pc{
     margin-inline: auto;
     max-width:768px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*＿＿＿＿＿＿＿＿
 レスポンシブ対応
@@ -1134,13 +1145,23 @@ img.mainichi_pc{
         padding-bottom:53px;
         text-align: center;
     }
+
     /* わたしについて */
+    h2{
+        font-size: 24px;
+        margin-bottom: 95px;
+    }
+    
     .about h2{
         font-size: 24px;
         margin-left: 8%;
         margin-top: -15px;    
         position: absolute;
         z-index: 20;
+    }
+
+    .about{
+        margin-bottom: 445px;
     }
 
     .about p{
@@ -1185,16 +1206,7 @@ img.mainichi_pc{
         100%{width:100px;opacity:0}
     }
 
-
-
-
-
-
-
-
     /* つくったもの */
-    h2{font-size: 24px;}
-
     .box{
      padding-left: 7%;
      padding-right: 7%;
@@ -1275,11 +1287,6 @@ img.mainichi_pc{
     }
 
  /*お問い合わせ*/
-
- .contact-title {
-     font-size: 24px;
-    }
- 
  .contact label{
      font-size: 14px;
      letter-spacing: 0.01em; 
@@ -1387,6 +1394,13 @@ img.mainichi_pc{
     }
 
     /* 3つの強み*/
+    .strenth{
+        margin-top: 200px;
+    }
+
+    .about-h2{    
+        font-size: 24px;
+    }
 
     .strenth-inner{
         padding-left: 8%;
@@ -1395,11 +1409,6 @@ img.mainichi_pc{
         width: 84%;
         margin-bottom: 202px;
     }
-    .biography-inner h2{
-        padding-top: 85px;
-        margin-bottom: 112px;
-    } 
-
     .strenth-num{
         font-size: 20px;
     }
@@ -1421,6 +1430,10 @@ img.mainichi_pc{
     }
 
     /* あゆみ*/
+    .biography h2{
+     margin-bottom: 112px;
+    } 
+
     .biography-inner{
        padding-left: 8%;
        padding-right: 8%;
@@ -1461,16 +1474,12 @@ img.mainichi_pc{
         height: 0.5px;
     }
 
-    .about-h2 {
-        padding-top: 200px;
-        font-size: 24px;
-        margin-bottom: 91px;
-    }
-
-
-
 
     /* これから */
+    .feature {
+        margin-top: 200px;
+    }
+
    .feature-description{
      width:100% ;
      font-size: 14px;
