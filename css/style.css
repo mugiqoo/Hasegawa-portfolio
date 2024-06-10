@@ -491,6 +491,11 @@ p.works-title{
     letter-spacing: 0.05em;
     font-weight: normal;
 }
+.comingsoon{
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: normal;
+}
 
 /* めくれるアニメーション */
 .box .jsc-modal-trigger {

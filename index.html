@@ -201,24 +201,22 @@
             </li>
 
             <li>
-               <div class="works6 jsc-modal-trigger jsc-modal-trigger6">
-                    <img src="images/works1.png" alt="モバイルキャンペーンバナー">
-                    <p class="works-category">Website</p>
-                    <p class="works-title">モバイルキャンペーン（スクール課題）</p>                    
+               <!-- <div class="works6 jsc-modal-trigger jsc-modal-trigger6">                     -->
+                 <p class="comingsoon">Coming Soon...</p>                    
                </div>
                    
-               <div class="layer jsc-layer"></div>
+               <!-- <div class="layer jsc-layer"></div> -->
 
-               <div class="modal-wrapper jsc-modal-target jsc-modal-target6">                    
-                    <div class="modal-btn modal-btn6">
+               <!-- <div class="modal-wrapper jsc-modal-target jsc-modal-target6">                     -->
+                    <!-- <div class="modal-btn modal-btn6"> -->
                       <div class="modal-close jsc-modal-close"><span class="round_btn"></span><span class="sp">閉じる</span></div>
                     </div>
-                    <div class="modal-content">
-                      <img class="modal-works-pc" src="images/works6.png" alt="モバイルキャンペーンバナー">
-                      <p class="modal-works-title">モバイルキャンペーン（スクール課題）</p>
-                      <p class="modal-works-category"> Type : Website</p>
-                      <p class="modal-works-ex">スクール課題にてトレースしました。<br>使用ツール ： Illustrator / Photoshop</p>
-                      <img class="modal-works1-1" src="images/works1-1.jpg" alt="モバイルキャンペーンバナー">
+                    <!-- <div class="modal-content"> -->
+                      <img class="modal-works-pc" src="" alt="">
+                      <p class="modal-works-title"></p>
+                      <p class="modal-works-category"></p>
+                      <p class="modal-works-ex"></p>
+                      <img class="modal-works1-1" src="" alt="">
                    </div>
                </div>
             </li>
@@ -359,14 +357,9 @@
             $('.jsc-modal-target5').fadeToggle();
             $('body').toggleClass('stop');
         });
-        $('.jsc-modal-trigger6,.modal-btn6').click(function () {
-            $('.jsc-layer').fadeToggle();
-            $('.jsc-modal-target6').fadeToggle();
-            $('body').toggleClass('stop');
-        });
 
         //ヘッダー名前アニメーションいらない？//
-        function BlurTextAnimeControl() {
+        function BlurTextAnimeControl() {-
         $('.header-name').each(function(){ 
             var elemPos = $(this).offset().top-50;
             var scroll = $(window).scrollTop();
