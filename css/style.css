@@ -438,11 +438,20 @@ h2{
     padding-right: 10%;
 }
 
+.box::after{
+    content:"";
+    display: block;
+    width:33%;
+}
 .works li{
     width: 33%;
-    background-color: #E0ECE4;
     margin-bottom: 71px;
-    text-align: center;
+    text-align: center;    
+}
+
+.jsc-modal-trigger{
+    background-color: #E0ECE4;
+    height:100% ;
 }
 
 .works1 img{
